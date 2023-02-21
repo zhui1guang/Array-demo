@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // slice() 返回值-【截取一段连续的数组元素】，不改变原数组
+    var colors = ['red', 'green', 'blue', 'yellow', 'purple'];
+    var colors2 = colors.slice(1);
+    var colors3 = colors.slice(1, 4);
+
+    console.log(colors);//['red', 'green', 'blue', 'yellow', 'purple']——不改变源数组
+    console.log(colors2);//['green', 'blue', 'yellow', 'purple'] 从第二个位置开始截取到末尾
+    console.log(colors3);//['green', 'blue', 'yellow']——左闭右开
+  </script>
+</body>
+
+</html>

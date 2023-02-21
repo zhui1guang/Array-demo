@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /* 
+      every() 和 some():
+        查询数组中的项是否满足回调的条件
+    */
+    var numbers = [1, 2, 3, 4, 5, 4, 3, 2, 1];
+
+    var everyResult = numbers.every(function (item, index, array) {
+      return (item > 2); //判断是否所有项都大于2
+    });
+    console.log(everyResult); //farse
+
+    /* 应用：如果查找到了 就return true来终止循环，提高查找效率 */
+    var someResult = numbers.some(function (item, index, array) {
+      return (item > 2);//判断是否有大于2的项
+    })
+    console.log(someResult);//true
+  </script>
+</body>
+
+</html>

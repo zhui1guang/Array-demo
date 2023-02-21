@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /* 
+      默认情况下转换成以“逗号”为分隔符的字符串：
+      arr.toString()
+      arr.toLocaleString()
+      arr.valueOf()
+    */
+    var person1 = {
+      toLocaleString: function () {
+        return "Nikolaos";
+      },
+
+      toString: function () {
+        return "Nicholas";
+      },
+
+      valueOf: function () {
+        return 'person1 valueOf '
+      }
+    };
+
+    var person2 = {
+      toLocaleString: function () {
+        return "Grigorios";
+      },
+
+      toString: function () {
+        return "Greg";
+      },
+
+      valueOf: function () {
+        return 'person2 valueOf '
+      }
+    };
+
+    var people = [person1, person2];
+    /* 
+    隐式调用实例的toString方法
+    */
+    alert(people); //Nicholas,Greg
+
+    alert(people.valueOf()); //Nicholas,Greg
+    console.log(people.toString()); //Nicholas,Greg
+    console.log(people.toLocaleString()); //Nikolaos,Grigorios
+
+
+    // arr.join("分隔符")：将所有数组项转换为以【指定分隔符】分隔的字符串
+    let peopleStr = people.join("&");
+    console.log(peopleStr); //Nicholas&Greg
+  </script>
+</body>
+
+</html>

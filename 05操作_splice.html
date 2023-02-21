@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // splice():删除、插入、替换
+    let colors = ['red', 'green', 'blue'];
+    /* 
+      删除：两个参数：起始位置、删除个数。
+            返回值——【删除元素组成的数组】
+    */
+    let removed = colors.splice(0, 1);
+    console.log(removed); //['red']
+    console.log(colors); //['green', 'blue']
+
+    /* 
+      插入：插入的起始位置，删除个数为0，要插入的元素(若是数组就是整个数组插入)
+      返回值——【空数组】
+    */
+    removed = colors.splice(1, 0, "yellow", 'orange', ['black', 'pink']);
+    console.log(removed); //[] 
+    console.log(colors); // ['green', 'yellow', 'orange',['black', 'pink'], 'blue']
+
+    /* 
+      替换：要替换的起始元素下标，替换的个数，替换的值
+            返回值-【被替换的元素组成的数组】
+    */
+    removed = colors.splice(1, 2, 'red', 'purple');
+    console.log(removed);//['yellow','orange']
+    console.log(colors);// ['green', 'red', 'purple',['black', 'pink'], 'blue']
+  </script>
+</body>
+
+</html>

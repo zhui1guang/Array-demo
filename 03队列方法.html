@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /* 
+      使用push()和shift()来模仿队列的先进先出（FIFO）
+    */
+    let colors = new Array();
+    let count = colors.push('red', 'blue');
+    console.log(count); //2
+
+    count = colors.push('black');
+    console.log(count); //3
+
+    let item = colors.shift();
+    console.log(item);// red
+    console.log(colors.length); //2
+
+    /* 
+      使用pop()和unshift()模仿先进先出
+    */
+
+    let names = new Array();
+    let namesCount = names.unshift('Lora', 'Echo'); //推入两项
+    console.log(namesCount);//2
+
+    namesCount = names.unshift('Gery'); //在头部推入一项
+    console.log(namesCount);//3
+
+    let name = names.pop(); //取得最后一项
+    console.log(name); //'Echo'
+    console.log(names.length);//2
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let colors = ['red', 'pink', 'blue'];
+    // 实参中的每一项都添加到副本中，返回值-【连接完成后的数组副本】
+    var colors2 = colors.concat("yellow", ['black', 'brown']);
+
+    console.log(colors); //['red', 'pink', 'blue']——不改变源数组
+    console.log(colors2); //['red', 'pink', 'blue', 'yellow', 'black', 'brown']
+  </script>
+</body>
+
+</html>

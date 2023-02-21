@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 应用：查询符合某些条件的【所有】数据项
+    var numbers = [1, 2, 3, 4, 5, 4, 3, 2, 1];
+
+    //返回一个由满足回调的元素组成的数组
+    var filterResult = numbers.filter(function (item, index, array) {
+      return (item > 2);//筛出大于2的数组项
+    })
+    console.log(filterResult); //[3, 4, 5, 4, 3]
+  </script>
+</body>
+
+</html>
