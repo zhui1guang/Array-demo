@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function foo() {
+      console.log(this.a);
+    }
+    var a = 2;
+    // 直接使用不带任何修饰的函数引用进行调用，非严格模式下this指向顶层对象window
+    foo();//2
+  </script>
+</body>
+
+</html>

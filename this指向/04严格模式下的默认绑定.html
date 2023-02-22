@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function foo() {
+      'use strict';
+      console.log(this.a);
+    }
+    var a = 2;
+    /* 
+      严格模式下，this会绑定到undefined。而undefined并没有a属性--> 类型错误
+    */
+    foo();//Uncaught TypeError: Cannot read properties of undefined (reading 'a')
+  </script>
+</body>
+
+</html>

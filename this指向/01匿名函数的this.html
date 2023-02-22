@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /* 
+        this的指向取决于函数的执行环境
+    */
+
+    // 匿名函数的执行环境有全局性
+    var name = "This Window";
+    var object = {
+      name: 'My Object',
+
+      getNameFunc: function () {
+        return function () {
+          return this.name;
+        }
+      }
+    }
+
+    console.log(object.getNameFunc()());//This Window
+
+    // 保存外部函数的this来使闭包可以访问到直接外部函数的this
+    var myName = "Window's name";
+    var myObject = {
+      myName: 'My Object',
+      getNameFunc: function () {
+        //保存直接外部函数的this
+        var that = this;
+        return function () {
+          return that.myName;
+        }
+      }
+    };
+    console.log(myObject.getNameFunc()()); //My Object
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var name = "The window";
+
+    var myObject = {
+      name: 'My object',
+      getNameFunc: function () {
+        return this.name;
+      }
+    };
+
+    console.log(myObject.getNameFunc()); //My object
+
+    console.log((myObject.getNameFunc)()); //My object
+
+    console.log((myObject.getNameFunc = myObject.getNameFunc)()); //The window
+  </script>
+</body>
+
+</html>
