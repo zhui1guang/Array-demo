@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var addr = {
+      base: 1,
+
+      add: function (a) {
+        var f = v => v + this.base;
+        return f(a);
+      },
+
+      addThruCall: function (a) {
+        var f = v => v + this.base;
+        var b = {
+          base: 2
+        };
+
+        //试图通过call将f函数的this改成对象b,但是由于箭头函数没有自己的this，因此call(),apply()和bind()的第一个参数都会自动被忽略。
+        return f.call(b, a);
+      }
+    };
+
+    console.log(addr.add(1));//2
+    console.log(addr.addThruCall(1));//2
+  </script>
+</body>
+
+</html>

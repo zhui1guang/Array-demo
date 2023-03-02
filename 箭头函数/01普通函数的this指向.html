@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /* 普通函数this指向全局对象，在浏览器中是window */
+    function Person() {
+      this.age = 0;
+
+      /* 每隔1s输出NaN 此时this指向全局对象window，window上没有age属性 */
+      setInterval(function growup() {
+        this.age++;
+        console.log(this.age);
+      }, 1000)
+    }
+
+    var p = new Person();
+  </script>
+</body>
+
+</html>

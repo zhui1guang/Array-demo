@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function foo(arg) {
+      //2. arguments=[1]-->f()返回值1
+      var f = (...args) => args[0];
+      //1.arg=1
+      return f(arg);
+    }
+    /* 注意：如果同时写两个foo函数，则下面foo函数的定义会覆盖掉上面foo()函数，也就是此时foo(1)是走下面函数foo(arg1,arg2)这一个声明的，即args = [1, undefined]
+      而返回1是故意想成是foo(arg)这个声明
+    */
+    foo(1); //1
+
+
+    function foo(arg1, arg2) {
+      var f = (...agrs) => agrs[1];
+      return f(arg1, arg2);
+    }
+    foo(1, 2);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let mySet = new Set();
+    mySet.add(1);
+    mySet.add('some text');
+    mySet.add({ "a": 1, "b": 2 });
+    mySet.add({ "a": 1, "b": 2 });
+
+    // for of:遍历一个可迭代对象的属性
+    // (内置)可迭代对象：Map Set String Array TypedArray / Arguments
+    //按顺序输出整个Set:1 'some text' {a:1,b:2} {a:1, b:2}
+    // for (let item of mySet) console.log(item);
+
+    //myset.keys() 和values()方法相同，按顺序返回Set中的元素
+    // /按顺序输出整个Set:1 'some text' {a:1,b:2} {a:1, b:2}
+    // for (let item of mySet.keys()) console.log(item);
+    // for (let item of mySet.values()) console.log(item);
+
+    //mySet.entries():按顺序，返回一个迭代对象，格式为[value, value]，也就是每个键和值都是一样的
+    // /按顺序输出整个Set:1 'some text' {a:1,b:2} {a:1, b:2}
+    for (let [key, value] of mySet.entries()) console.log(key);
+  </script>
+</body>
+
+</html>

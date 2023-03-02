@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var arguments = [1, 2, 3];
+    var arr = () => arguments[0];
+
+    console.log(arr());
+
+    function foo(n) {
+      // 箭头函数没有自己实参类数组对象，此时的arguments是作用域链的上一层即foo()函数实参类数组
+      var f = () => arguments[0] + n;
+      return f();
+    }
+
+    /*
+    n = 1,
+    arguments = [1] 
+     */
+    console.log(foo(1));
+    console.log(foo(2));
+    console.log(foo(3));
+    /* 
+    n=3
+    arguments = [3,2]
+    */
+    console.log(foo(3, 2));
+  </script>
+</body>
+
+</html>

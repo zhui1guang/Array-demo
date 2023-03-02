@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    'use strict';
+    var obj = {
+      a: 10
+    };
+
+    // Object.definedProperty,为对象添加新属性 || 修改原有属性， 并返回这个对象
+    const defineRes = Object.defineProperty(obj, "b", {
+      get: () => {
+        // 严格模式下，箭头函数的this指向全局对象Window，Window没有a属性，因此this.a是undefined，typeof this.a是'undefined',
+        console.log(this.a, typeof this.a, this);
+        //undefined+10 --> NaN
+        return this.a + 10;
+      }
+    })
+
+    console.log(defineRes);//{a:10,b:NaN}
+    console.log(obj.b);
+  </script>
+</body>
+
+</html>

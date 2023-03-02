@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 超集：集合A拥有集合B所有的元素，同时可能有集合B没有的元素-> 集合A是集合B的超集，集合B是集合A的子集
+    function isSuperset(set, subSet) {
+      for (let elem of subSet) {
+        if (!set.has(elem)) {
+          return false;
+        }
+      }
+      return true;
+    }
+
+    //交集:遍历其中一个集合，并判断另一个集合是否有当前遍历的元素，有就add结果集合
+    function isIntersection(set1, set2) {
+      let _intersection = new Set();
+      for (let elem of setB) {
+        if (set1.has(elem)) {
+          _intersection.add(elem);
+        }
+      }
+      return _intersection;
+    }
+
+    //差集:拷贝其中一个集合，遍历另一个集合，如果拷贝集合中有当前遍历元素，则删除，剩下的就是差集
+    function deference(setA, setB) {
+      let _deference = new Set(setA);
+      for (let elem of setB) {
+        if (setA.has(elem)) {
+          _deference.delete(elem);
+        }
+      }
+      return _deference;
+    }
+
+    //并集
+    function union(setA, setB) {
+      let _union = new Set(setA);
+      for (let elem of setB) {
+        if (!_union.has(elem)) {
+          _union.add(elem);
+        }
+      }
+      return _union;
+    }
+
+    //补集
+    function symmetricDifference(setA, setC) {
+      let _symmetricSet = new Set(setA);
+      for (let elem of setC) {
+        // A中有c的元素，则删除，否则就添加进
+        if (_symmetricSet.has(elem)) {
+          _symmetricSet.delete(elem);
+        } else {
+          _symmetricSet.add(elem);
+        }
+      }
+      return _symmetricSet;
+    }
+
+    let setA = new Set([1, 2, 3, 4]),
+      setB = new Set([2, 3]),
+      setC = new Set([3, 4, 5, 6]);
+
+    console.log(isSuperset(setA, setB));//true
+    console.log(isIntersection(setA, setB));//{2,3}
+    console.log(deference(setA, setB));//{1,4}
+    console.log(union(setA, setC));//{1,2,3,4,5,6}
+    console.log(symmetricDifference(setA, setC));//{1,2,5,6}
+  </script>
+</body>
+
+</html>

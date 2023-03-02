@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function Person() {
+      this.age = 0;
+
+      setInterval(() => {
+        // 箭头函数this指向的是作用域链中的上一层，刚好可以指向Person，也就是说箭头函数没有自己的this
+        this.age++;
+        console.log(this.age);
+      }, 1000);
+    }
+    var p = new Person();
+  </script>
+</body>
+
+</html>
