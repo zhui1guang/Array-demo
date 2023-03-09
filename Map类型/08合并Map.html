@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let firstMap = new Map([
+      [1, 'one'],
+      [2, 'two'],
+      [3, 'three']
+    ]);
+
+    let secMap = new Map([
+      [1, 'ONE'],
+      [2, 'TWO'],
+      [4, 'FOUR']
+    ]);
+
+    //类似于并集，但是相同键的被后面的覆盖了
+    let mergeMap = new Map([...firstMap, ...secMap]);
+    for (let [key, value] of mergeMap) {
+      console.log(`${key} ：${value}`);
+    }
+  </script>
+</body>
+
+</html>

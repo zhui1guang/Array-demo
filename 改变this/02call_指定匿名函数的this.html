@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var animals = [
+      { species: 'Lion', name: 'King' },
+      { species: 'Whale', name: 'farry' }
+    ];
+
+    /* 
+     输出：#0 Lion:King
+          #1 Whale:farry
+    */
+
+    for (var i = 0; i < animals.length; i++) {
+      (function (i) {
+        //声明函数表达式
+        this.print = function () {
+          console.log('#' + i + ' ' + this.species + ':' + this.name);
+        }
+        //调用
+        this.print();
+      }).call(animals[i], i);
+      //利用call来将每个数组元素作为当前this对象调用了该匿名方法
+    }
+  </script>
+</body>
+
+</html>

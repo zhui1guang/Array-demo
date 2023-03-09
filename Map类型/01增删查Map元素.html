@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const contacts = new Map();
+    //Map(1){'Jessie':{phone: '123456', addr: 'guangzhou'}}
+    contacts.set('Jessie', { phone: '123456', addr: 'guangzhou' });
+    contacts.has('Jessie');//true
+    // {phone: '123456', addr: 'guangzhou'}
+    console.log(contacts.get('Jessie'));
+    //undefined
+    console.log(contacts.get('Echo'));
+    //false
+    console.log(contacts.has('Echo'));
+    // Map(2){'Jessie'=>{phone:'',addr:''}, 'Echo'=>{}}
+    contacts.set('Echo', { phone: '234567', addr: 'foshan' });
+    console.log(contacts);
+    contacts.get('Echo');
+    //false 删除失败
+    console.log(contacts.delete('Halo'));
+    //true
+    console.log(contacts.delete('Jessie'));
+    //1 Map(1){'Echo'=>{}}
+    console.log(contacts.size);
+    console.log(contacts);
+  </script>
+</body>
+
+</html>

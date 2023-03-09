@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 非严格模式下，call没有传递绑定对象，则默认this指向Window对象
+    var sData = 'Wisen';
+
+    function display() {
+      this.sData = 'sData in dispaly';
+      console.log(this);
+      console.log('sData value is ', this.sData);
+    }
+
+    display.call(); //this--> Window{}, sData value is sData in display;
+
+    function strictDisplay() {
+      'use strict';
+      console.log(this);
+      console.log('strictDisplay sData is', this.sData);
+    }
+    // 严格模式下，call不传递绑定对象，this指向undefined。
+    strictDisplay.call(); //this--->undefined, typeError
+  </script>
+</body>
+
+</html>

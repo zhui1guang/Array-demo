@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let originMap = new Map([[1, 'one']])
+    console.log(originMap);//{1=>"one"}
+
+    // 深拷贝机制
+    let cloneMap = new Map(originMap);
+    //{1=> 'one'}
+    console.log(cloneMap);
+    console.log(cloneMap === originMap);//false 引用不相等，浅比较（基本类型比较值，引用类型比较引用）
+    cloneMap.set(1, 'ONE');
+    console.log(cloneMap.get(1));//ONE
+    console.log(originMap.get(1)); //one
+  </script>
+</body>
+
+</html>

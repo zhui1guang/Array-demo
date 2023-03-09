@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /* 
+      虽然NaN ！== NaN，但是Map机制将其视为同一个键
+    */
+    const myMap = new Map();
+    myMap.set(NaN, 'not a number');
+    console.log(myMap.get(NaN)); //not a number
+
+    const otherNaN = Number('foo');
+    console.log(myMap.get(otherNaN));//not a number
+  </script>
+</body>
+
+</html>

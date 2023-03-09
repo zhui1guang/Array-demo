@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="text" id="input">
+  <script>
+    //中文输入问题
+    var input = document.getElementById("input");
+
+    input.addEventListener('input', inputChange);
+    // compositionstart:当用户使用拼音输入法开始输入汉字时触发
+    input.addEventListener('compositionstart', compositionstart);
+    //compositionupdate 在字符被输入到一段文字中时触发
+    input.addEventListener('compositionupdate', compositionupdate);
+    // comsitionend 输入文字时回退输入的所有拼音 || 按下空格确定文字 时 触发
+    input.addEventListener('compositionend', compositionend);
+
+
+    function inputChange() {
+      console.log('input');
+    }
+    function compositionstart() {
+      console.log('compositionstart');
+    }
+    function compositionupdate() {
+      console.log('compositionupdate');
+    }
+    function compositionend() {
+      console.log('compositionend');
+    }
+  </script>
+</body>
+
+
+</html>

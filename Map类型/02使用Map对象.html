@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const myMap = new Map();
+
+    const keyString = 'a string';
+    const keyObj = {};
+    const keyFunc = function () { };
+
+    //添加键值
+    myMap.set(keyString, '和键a string 关联的值');
+    myMap.set(keyObj, '和键keyObj 关联的值');
+    myMap.set(keyFunc, '和键keyFunc 关联的值');
+
+    //键值对的数量
+    console.log(myMap.size);//3
+
+    // 获得指定键的值
+    console.log(myMap.get(keyString)); //和键a string 关联的值
+    console.log(myMap.get(keyObj));
+    console.log(myMap.get(keyFunc));
+
+    //字面量看看键的情况
+    console.log(myMap.get('a string'));//和键a string 关联的值
+
+    /* 
+      对象和函数都是引用类型，引用不同，不属于同一个键
+    */
+    console.log(myMap.get({}));//undefined
+    console.log(myMap.get(function () { })); //undefined
+  </script>
+</body>
+
+</html>

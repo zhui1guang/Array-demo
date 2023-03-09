@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var myMap = new Map();
+    myMap.set(0, 'zero');
+    myMap.set(1, 'one');
+
+    /* 
+     0 = zero
+     1 = one
+    */
+    for (const [key, value] of myMap) {
+      console.log(`${key} = ${value}`);
+    }
+
+    /* 
+    keys()是按插入顺序输出所有的键
+    */
+    for (const key of myMap.keys()) {
+      console.log(`${key}`);
+    }
+
+    /* 
+      values()按插入的顺序输出所有的值
+    */
+    for (const value of myMap.values()) {
+      console.log(`${value}`);
+    }
+
+    /* 
+     0 = zero
+     1 = one
+    */
+    for (const [key, value] of myMap.entries()) {
+      console.log(`${key} = ${value}`);
+    }
+  </script>
+</body>
+
+</html>
