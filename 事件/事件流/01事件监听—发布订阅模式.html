@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>事件监听——发布订阅模式</title>
+
+</head>
+
+<body>
+  <button id="btn">点我触发</button>
+
+  <script>
+    let btn = document.querySelector('#btn');
+
+    btn.addEventListener('click', () => {
+      console.log('click 111');
+    })
+    btn.addEventListener('click', () => {
+      console.log('1111');
+    })
+
+    document.body.addEventListener('click', () => {
+      console.log('2222');
+    })
+
+    document.body.addEventListener('click', () => {
+      console.log('3333');
+    })
+  </script>
+</body>
+
+</html>

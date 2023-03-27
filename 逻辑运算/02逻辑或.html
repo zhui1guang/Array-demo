@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 返回第一个为真的值
+    console.log(true || true); //true
+    console.log(false || false);//false
+    console.log(true || false); // true
+    console.log(false || (3 == 4)); //false
+    console.log('cat' || 'Dog'); //cat
+    console.log(false || 'Cat') //cat
+    console.log('Cat' || false);//cat
+    console.log(' ' || 'cat'); //一个空格
+    console.log('' || 'cat');//cat
+    console.log('' || false);//false
+    console.log(false || '');//''
+    console.log(false || varObject); //ReferError
+    console.log('---------------')
+
+
+    console.log(true || false && false);//true 已经短路，&&没有被执行到
+    console.log((true || false) && false);//false
+
+    function A() {
+      console.log('called A');
+      return false;
+    }
+
+    function B() {
+      console.log('called B');
+      return true
+    }
+
+    console.log(B() || A());
+    /*
+      called B
+      true
+    */
+
+
+
+  </script>
+</body>
+
+</html>

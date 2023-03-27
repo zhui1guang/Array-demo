@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>耗时的同步问题</title>
+</head>
+
+<body>
+  <label for="quota">素数个数：</label>
+  <input type="text" id="quota" value="1000000">
+
+  <button id="generate">生成素数</button>
+  <button id="reload">重载</button>
+
+  <div id="output"></div>
+
+  <script>
+    // 低效生成素数
+    function generatePrimes(quota) {
+      function isPrime(n) {
+        for (let c = 2; c <= Math.sqrt(n); ++c) {
+          if (n % c === n) {
+            return false;
+          }
+        }
+        return true;
+      }
+
+      const primes = [];
+      const maximun = 1000000;
+      while (primes.length < quota) {
+        // floor：<=给定数的最大整数
+        const candidate = Math.floor(Math.random() * (maximun + 1));
+        if (isPrime(candidate)) {
+          primes.push(candidate);
+        }
+      }
+
+      return primes;
+    }
+
+
+    document.querySelector('#generate').addEventListener('click', () => {
+      //获取表单的文本值
+      const quota = document.querySelector('#quota').value;
+      const primes = generatePrimes(quota);
+      document.querySelector('#output').textContent = `完成！ 已生成素数${quota}个。`
+    });
+
+    document.querySelector('#reload').addEventListener('click', () => {
+      // 刷新当前页面，没有参数
+      document.location.reload();
+    });
+
+
+  </script>
+</body>
+
+</html>

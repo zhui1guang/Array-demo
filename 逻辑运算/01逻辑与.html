@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 遇到第一个假值就返回
+    const a = 3;
+    const b = -2;
+    console.log(a > 0 && b > 0);//false
+
+    //逻辑与 会保留非布尔值并原样返回
+    console.log("" && "foo");//空字符串
+    console.log(2 && 0);//0
+    console.log('foo' && 4);//4
+
+    console.log('------------');
+    console.log(true && true); //true
+    console.log(true && false); //false
+    console.log(false && false);//false
+    console.log(false && 3 === 4);//false
+    console.log("Cat" && "Dog"); //"Dog"
+    console.log(false && "Cat");//fasle
+    console.log("Cat" && false);//false
+    console.log("" && false); //""
+    console.log(false && "");//false
+  </script>
+</body>
+
+</html>

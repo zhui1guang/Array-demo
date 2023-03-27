@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const target = { a: 1, b: 2 };
+    const sourse = { b: 4, c: 5 };
+
+    // Object.assgin()将一个或多个源对象的属性合并到目标对象target中，同名则覆盖；
+    // 且返回一个与目标对象【共享引用】的合并对象——浅拷贝
+    const returnedTarget = Object.assign(target, sourse);
+
+    console.log(target);//{a: 1, b: 4, c: 5}
+    console.log(sourse);//{ b: 4, c: 5 }
+    console.log(returnedTarget);//{a: 1, b: 4, c: 5}
+    console.log(returnedTarget === target);//true
+  </script>
+</body>
+
+</html>

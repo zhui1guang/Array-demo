@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let myMap = new Map();
+
+    myMap.set(NaN, '一个NaN');
+    myMap.set(NaN, '另一个NaN');
+    console.log(myMap); //Map(1){ NaN => '另一个NaN'}
+
+    myMap.set(+0, '我是+0');
+    myMap.set(-0, '我是-0');
+    myMap.set(0, '我是0');
+    console.log(myMap);//Map(2){NaN => '另一个NaN', 0 => '我是0'}
+
+    myMap.set(5, '我是number5');
+    myMap.set('5', '我是string5');
+    console.log(myMap);//Map(4) {NaN => '另一个NaN', 0 => '我是0', 5 => '我是number5', '5' => '我是string5'}
+
+    let myMapEntry = myMap.entries();
+    console.log(myMapEntry);//MapIterator{NaN => '另一个NaN', 0 => '我是0'}
+
+    // 采用for_of迭代Map
+    /* 
+      输出：NaN:另一个NaN
+            0:我是0
+     */
+    for (let [key, value] of myMap) {
+      console.log(`${key}:${value}`)
+    }
+
+    /* 
+      输出：NaN:另一个NaN
+            0:我是0
+     */
+    for (let [key, value] of myMapEntry) {
+      console.log(`${key}:${value}`);
+    }
+  </script>
+</body>
+
+</html>

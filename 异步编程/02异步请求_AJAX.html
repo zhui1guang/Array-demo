@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button id="xhr">点击发起请求</button>
+  <button id="reload">重载</button>
+
+  <!-- pre预定义格式文本，即文本在输入的时候是什么格式就已什么格式输出 -->
+  <pre readonly class="event-log"></pre>
+
+  <script>
+    const log = document.querySelector('.event-log');
+    document.querySelector('#xhr').addEventListener('click', () => {
+      /* 
+        textContent:一个节点及其后代的文本内容
+        ——可防止XSS攻击
+      */
+      log.textContent = '';
+      //不刷新页面的情况下与服务器交互，请求URL的内容
+      const xhr = new XMLHttpRequest();
+      xhr.addEventListener('loadend', () => {
+        // 额外：xhr.readyState状态值（0初始化，1send()已调用，2send执行完毕，3服务器数据开始解析 4数据接收完毕
+        log.textContent = `${log.textContent}完成！ 状态码：${xhr.status}`
+      });
+      xhr.open('GET', 'https://raw.githubusercontent.com/mdn/content/main/files/en-us/_wikihistory.json');
+      xhr.send();
+      log.textContent = `${log.textContent}请求已经发起\n`;
+    });
+
+    document.querySelector('#reload').addEventListener('click', () => {
+      log.textContent = '-----';
+      document.location.reload();
+    })
+  </script>
+</body>
+
+</html>

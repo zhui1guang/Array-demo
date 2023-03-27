@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  map.entries():返回一个新的Map迭代器对象，值的形式是键值组成的数组
+  <script>
+    const myMap = new Map();
+    myMap.set("0", "foo");
+    myMap.set("1", "bar");
+    myMap.set({}, "baz");
+    console.log(myMap);
+
+
+    const mapIter = myMap.entries();
+    console.log(mapIter.next().value);//["0","foo"]
+    console.log(mapIter.next().value);//["1", "bar"]
+    console.log(mapIter.next());//{value:[{},"bar"], done:false}
+    console.log(mapIter.next());//{value: undefined, done: true}
+  </script>
+</body>
+
+</html>

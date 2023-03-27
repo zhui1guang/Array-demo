@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="divA">This is <span>some</span> text!</div>
+
+  <script>
+    let text = document.getElementById('divA').textContent;
+    document.write('#divA里以及后代的的文本：' + text);
+
+    // 设置元素的文本内容
+    document.getElementById('divA').textContent = 'This text is defferent!';
+  </script>
+</body>
+
+</html>
